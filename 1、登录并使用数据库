@@ -1,0 +1,38 @@
+Windows: cmd  以管理员身份打开
+查看版本号:  mysql --v
+            mysql --version
+            select version(93/80等)    在mysql下执行命令
+
+退出登录：  exit/quit
+登录 ：     mysql  -u root -P 3306 -h localhost -p(密码)    -P -h 在本机可以省略
+
+下载完相关版本的mysql后有自己的命令行终端，默认root
+
+
+查看数据库：  show databases;
+创建数据库：  create database (数据库名);
+使用数据库：  use (数据库名);
+删除数据库：  drop databaes (数据库名)；
+
+例如：        建一个员工数据库
+              create database dbtest1;
+              show databases;
+              use dbtest1;
+              create table employees(id int,name varchar(15));
+              show tables;
+              select * from employees;
+              insert into employees values(1001,'Tom');
+              insert into employees values(1002,'Jerry');
+              select * from employees;
+              show create table employees;                             会发现有UTF8可以输入中文,而5.7版本的是拉丁，不能输入中文
+
+              通过这两杠查看字符集和语法规则
+              show  variables like 'charcter_%';                       查看字符集
+              show variables like 'collation_%';                       查看比较规则
+              
+              若database和server没有UTF8则：                            打开my.ini
+              default-character-set=utf8                               在mysql 大概在63行下添加
+              character-set-server=utf8                                在mysqld 大概在76行下添加 这两行
+              collation-server=utf8_general_ci
+              重启mysql
+              
