@@ -34,5 +34,5 @@ Windows: cmd  以管理员身份打开
               default-character-set=utf8                               在mysql 大概在63行下添加
               character-set-server=utf8                                在mysqld 大概在76行下添加 这两行
               collation-server=utf8_general_ci
-              重启mysql
+              net stop mysql  net start mysql                          重启mysql
               
